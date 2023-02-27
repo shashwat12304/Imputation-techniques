@@ -14,9 +14,11 @@
       </style>
     </head>
     <body>
-      <div class = "container">
+      {%include 'nav.html'%}
       <h1 class  = "text-center mt-4 mb-4">IMPUTATION TECHNIQUES</h1>
-      <img class = "img-fluid" id ="banner" src ="https://imputation-techniques.shashwat12304.repl.co/static/banner.jpg">
+      <img class = "img-fluid" id ="banner" 
+    src="https://imputation-techniques.shashwat12304.repl.co/static/banner.jpg">
+      <div class = "container">
       <h2 class = "text-center mt-4 mb-4"><u>An Introduction</u></h2>
       <p class = "lead">In statistics, imputation is the process of replacing missing data with substituted values. When substituting for a data point, it is known as "unit imputation"; when substituting for a component of a data point, it is known as "item imputation". Imputation is a technique used for replacing the missing data with some substitute value to retain most of the data/information of the dataset. These techniques are used because removing the data from the dataset every time is not feasible and can lead to a reduction in the size of the dataset to a large extend, which not only raises concerns for biasing the dataset but also leads to incorrect analysis.</p>
       <center><img class = "img-fluid mt-4 mb-4" src ="https://imputation-techniques.shashwat12304.repl.co/static/imputation_intro.PNG"></center>
@@ -37,9 +39,9 @@ We employ imputation since missing data can lead to the following problems:
       {% endfor %}
     </div>
   <div class = "text-center">
-      <button class = "btn btn-primary btn-lg mb-4">Contact us </button>
-      <p class = "text-center">Copyright 2022, Jovian</p>
+      <a class = "btn btn-primary btn-lg mb-4" href = "mailto:shashwatsharma12304@gmail.com?subject=Question%20about%20Imputation%20techniques&body=My%20name%3A%20%3Center%20name%3E%0D%0AMy%20question%3A%20%3Center%20question%3E">Contact us </a>
         </div>
     </div>
+      {%include 'footer.html'%}
     </body>
   </html>
