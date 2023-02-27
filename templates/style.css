@@ -1,0 +1,12 @@
+#banner{
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+}
+.outer{
+    border:1px solid #808080;
+    transition: background 0.5s;
+}
+.outer:hover{
+    background:#ffc300;  
+}

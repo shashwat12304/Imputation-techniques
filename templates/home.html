@@ -1,0 +1,45 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>
+        Imputation techniques
+      </title>
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+      <style>
+        {% include 'style.css'%}
+      </style>
+    </head>
+    <body>
+      <div class = "container">
+      <h1 class  = "text-center mt-4 mb-4">IMPUTATION TECHNIQUES</h1>
+      <img class = "img-fluid" id ="banner" src ="https://imputation-techniques.shashwat12304.repl.co/static/banner.jpg">
+      <h2 class = "text-center mt-4 mb-4"><u>An Introduction</u></h2>
+      <p class = "lead">In statistics, imputation is the process of replacing missing data with substituted values. When substituting for a data point, it is known as "unit imputation"; when substituting for a component of a data point, it is known as "item imputation". Imputation is a technique used for replacing the missing data with some substitute value to retain most of the data/information of the dataset. These techniques are used because removing the data from the dataset every time is not feasible and can lead to a reduction in the size of the dataset to a large extend, which not only raises concerns for biasing the dataset but also leads to incorrect analysis.</p>
+      <center><img class = "img-fluid mt-4 mb-4" src ="https://imputation-techniques.shashwat12304.repl.co/static/imputation_intro.PNG"></center>
+      <h2 class = "text-center mt-4 mb-4"><u>Importance of Data Imputation</u></h2>
+      <p class = "lead">Now that we learned what Data imputation is, let us see why exactly it is important.
+
+We employ imputation since missing data can lead to the following problems:
+
+<br><b>Distorts Dataset:</b><br>Large amounts of missing data can lead to anomalies in the variable distribution, which can change the relative importance of different categories in the dataset.
+<br><b>Unable to work with the majority of machine learning-related Python libraries: </b><br>When utilizing ML libraries (SkLearn is the most popular), mistakes may occur because there is no automatic handling of these missing data.
+<br><b>Impacts on the Final Model:</b><br>Missing data may lead to bias in the dataset, which could affect the final model's analysis.
+<br><b>Desire to restore the entire dataset:</b><br>This typically occurs when we don't want to lose any (or any more) of the data in our dataset because all of it is crucial. Additionally, while the dataset is not very large, eliminating a portion of it could have a substantial effect on the final model.
+</p>
+   <h2 class = "text-center mt-4 mb-4"><u>Different Imputation techniques</u></h2>  
+    <div>
+      {% for technique in techniques %}
+        {% include 'techniques.html'%}
+      {% endfor %}
+    </div>
+  <div class = "text-center">
+      <button class = "btn btn-primary btn-lg mb-4">Contact us </button>
+      <p class = "text-center">Copyright 2022, Jovian</p>
+        </div>
+    </div>
+    </body>
+  </html>
