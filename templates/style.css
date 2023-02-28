@@ -3,6 +3,10 @@
   height: 360px;
   object-fit: cover;
 }
+#banner2{
+  width: 100%;
+  object-fit: cover;
+}
 .outer{
     border:1px solid #808080;
     transition: background 0.5s;

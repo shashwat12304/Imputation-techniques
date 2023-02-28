@@ -4,7 +4,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>
-        KNN imputation
+        Missforest
       </title>
        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
@@ -13,17 +13,38 @@
         {% include 'style.css'%}
       </style>
     </head>
+<!----------------------------------------------body--------------------------------------------------->
     <body>
       {%include 'nav_Missforest.html'%}
       <div class = "container">
-      <h1 class  = "text-center mt-4 mb-4">KNN IMPUTATION</h1>
-      <img class = "img-fluid" id ="banner" src ="https://imputation-techniques.shashwat12304.repl.co/static/banner.jpg">
+      <h1 class  = "text-center mt-4 mb-4">MISSFOREST</h1>
+      <center><img class = "img-fluid" id = "banner2" style = "height: 470px" src ="https://miro.medium.com/max/1400/1*8yd5Emh8vaB4fEAxx82_Eg.png"></center>
+<!-----------------------------------Introduction------------------------------------------------------>
       <h2 class = "text-center mt-4 mb-4"><u>An Introduction</u></h2>
-      <p class = "lead">KNN imputer works on KNN algorithm.The fundamental of KNN algorithm is similarity. KNN stands for k nearest neighbors and it is generally used for classification.KNN algorithm stores all the cases and classifies all the cases on the similarity measure. K is the number of neighbors to include in the majority of the voting process. Choosing the right value of k is called parameter tuning and it is important as it can completely change our answer. There are several methods of choosing k such as<br>
-•	Sqrt(n), where n is total number of data points.<br>
-•	Odd value is selected<br>
-KNN is a Lazy learner and it is only useful for small noise free datasets.Relations are calculated via Euclidean distance and the missing values are imputed with values from most similar rows.We use nan-Euclidean distances to define relationships in KNNimputer.
+      <p class = "lead">MissForest is another machine learning-based data imputation algorithm that operates on the Random Forest algorithm. Stekhoven and Buhlmann, creators of the algorithm, conducted a study in 2011 in which imputation methods were compared on datasets with randomly introduced missing values. MissForest outperformed all other algorithms in all metrics, including KNN-Impute, in some cases by over 50%.<br>
 </p>
+<center><img class = "img-fluid" style = "height: 470px" src ="https://miro.medium.com/v2/resize:fit:828/1*7cyzrfuh9hKqz2lZxi_8ug.gif"></center>
+<!-------------------------------------------The working process ---=------------------------------------>
+<h2 class = "text-center mt-4 mb-4"><u>Process</u></h2>
+<p class = "lead">First, the missing values are filled in using median/mode imputation. Then, we mark the missing values as ‘Predict’ and the others as training rows, which are fed into a Random Forest model trained to predict. The generated prediction for that row is then filled in to produce a transformed dataset.<br>This process of looping through missing data points repeats several times, each iteration improving on better and better data. It’s like standing on a pile of rocks while continually adding more to raise yourself: the model uses its current position to elevate itself further.
+  <br>
+  <center><img class = "img-fluid" style = "height: 470px" src ="https://miro.medium.com/v2/resize:fit:828/format:webp/1*m_z8E4HrFtCnHBoDANauTQ.png"></center>
+<p class = "lead">The model may decide in the following iterations to adjust predictions or to keep them the same. Iterations continue until some stopping criteria is met or after a certain number of iterations has elapsed. As a general rule, datasets become well imputed after four to five iterations, but it depends on the size and amount of missing data.<br>
+</p></p>
+<!-------------------------------------Advantages---------------------------------------------------->
+<h2 class = "text-center mt-4 mb-4"><u>Advantages,Disadvantages & Comparison</u></h2> 
+<p class = "lead">
+There are many benefits of using MissForest. For one, it can be applied to mixed data types, numerical and categorical. Using KNN-Impute on categorical data requires it to be first converted into some numerical measure. This scale (usually 0/1 with dummy variables) is almost always incompatible with the scales of other dimensions, so the data must be standardized.<br>
+In a similar vein, no pre-processing is required. Since KNN uses naïve Euclidean distances, all sorts of actions like categorical encoding, standardization, normalization, scaling, data splitting, etc. need to be taken to ensure its success. On the other hand, Random Forest can handle these aspects of data because it doesn’t make assumptions of feature relationships like K-Nearest Neighbors does.<br>
+MissForest is also robust to noisy data and multicollinearity, since random-forests have built-in feature selection (evaluating entropy and information gain). KNN-Impute yields poor predictions when datasets have weak predictors or heavy correlation between features.<br>
+The results of KNN are also heavily determined by a value of k, which must be discovered on what is essentially a try-it-all approach. On the other hand, Random Forest is non-parametric, so there is no tuning required. It can also work with high-dimensional data, and is not prone to the Curse of Dimensionality to the heavy extent KNN-Impute is.<br>
+  There are downsides of this algorithm.For one, even though it takes up less space, if the dataset is sufficiently small it may be more expensive to run MissForest. Additionally, it’s an algorithm, not a model object; this means it must be run every time data is imputed, which may not work in some production environments.<br> 
+</p>
+<!---------------------------------------Help--------------------------------------------------------->
+  <div class = "text-center">
+      <a class = "btn btn-primary btn-lg mt-4 mb-4" href = "mailto:shashwatsharma12304@gmail.com?subject=Doubt%20regarding%20KNN%20imputer&body=Name%20%3A%20%3Cyour%20name%3E%0D%0AGithub%20Link%3A%20%3Cyour%20repository%20link%3E%0D%0ADescription%3A%20%3CIssues%20to%20be%20removed%3E">Help</a>
+        </div>
+  <!--------------------------------------------Footer----------------------------------------------->
   {%include 'footer.html'%}
   </body>
   </html>

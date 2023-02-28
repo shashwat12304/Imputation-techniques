@@ -29,7 +29,7 @@ TECHNIQUES = [
     'code':
     'https://github.com/shashwat12304/Imputation-techniques',
     'mail':
-    'mailto:shashwatsharma12304@gmail.com?subject=Doubt%20regarding%20KNN%20imputer&body=Name%20%3A%20%3Cyour%20name%3E%0D%0AGithub%20Link%3A%20%3Cyour%20repository%20link%3E%0D%0ADescription%3A%20%3CIssues%20to%20be%20removed%3E'
+    'mailto:shashwatsharma12304@gmail.com?subject=Doubt%20in%20Missforest&body=%3Cname%3E%3A%20your%20name%0D%0A%3Cgithub%20link%3E%3A%20link%0D%0A%3Cdoubt%3E%3A%20your%20doubt%20here'
   },
 ]
 
