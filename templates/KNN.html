@@ -13,16 +13,76 @@
         {% include 'style.css'%}
       </style>
     </head>
+<!----------------------------------------------body--------------------------------------------------->
     <body>
       {%include 'nav_KNN.html'%}
       <div class = "container">
       <h1 class  = "text-center mt-4 mb-4">KNN IMPUTATION</h1>
-      <img class = "img-fluid" id ="banner" src ="https://imputation-techniques.shashwat12304.repl.co/static/banner.jpg">
+      <center><img class = "img-fluid" style = "height: 470px" src ="https://imputation-techniques.shashwat12304.repl.co/static/banner_KNN.PNG"></center>
+<!-----------------------------------Introduction------------------------------------------------------>
       <h2 class = "text-center mt-4 mb-4"><u>An Introduction</u></h2>
       <p class = "lead">KNN imputer works on KNN algorithm.The fundamental of KNN algorithm is similarity. KNN stands for k nearest neighbors and it is generally used for classification.KNN algorithm stores all the cases and classifies all the cases on the similarity measure. K is the number of neighbors to include in the majority of the voting process. Choosing the right value of k is called parameter tuning and it is important as it can completely change our answer. There are several methods of choosing k such as<br>
 •	Sqrt(n), where n is total number of data points.<br>
 •	Odd value is selected<br>
-KNN is a Lazy learner and it is only useful for small noise free datasets.Relations are calculated via Euclidean distance and the missing values are imputed with values from most similar rows.We use nan-Euclidean distances to define relationships in KNNimputer.
+KNN is a Lazy learner and it is only useful for small noise free datasets.Relations are calculated via Euclidean distance and the missing values are imputed with values from most similar rows.We use nan-Euclidean distances to define relationships in KNNimputer.<br>
 </p>
+<center><img class = "img-fluid" style = "height: 470px" src ="https://miro.medium.com/max/1280/1*b9BXv0uAkbSAn8MJIa4-_Q.gif"></center>
+<!----------------------------------Essence of KNN Imputation ---=---------------------------->
+<h2 class = "text-center mt-4 mb-4"><u>The essence of KNN Imputation</u></h2>
+<p class = "lead">Sociologists and community researchers suggest that human beings live in a community because neighbors generate a feeling of security and safety, attachment to community, and relationships that bring out a community identity through participation in various activities.<br>
+A similar imputation methodology that works on data is k-Nearest Neighbours (kNN) that identifies the neighboring points through a measure of distance and the missing values can be estimated using completed values of neighboring observations.
+  <br>
+  <center><img class = "img-fluid" style = "height: 470px" src ="https://lh3.googleusercontent.com/kgxBFV7v73pLLDLPa3hAQwkQKseBwKPI_CA5ISMtPdh9lIOWzIy4Qop4BuZ_WkT0_qr106SVpuC60hw0mqs6_aRbsihrF0kxu_a5PJa77EBOT5uqmMhLcEJFKE7PSKIntpgerVfX"></center>
+<p class = "lead">The idea in kNN methods is to identify ‘k’ samples in the dataset that are similar or close in the space. Then we use these ‘k’ samples to estimate the value of the missing data points. Each sample’s missing values are imputed using the mean value of the ‘k’-neighbors found in the dataset.<br>
+</p></p>
+<!----------------------------------Parameters Calibration---------------------------------------->
+ <h2 class = "text-center mt-4 mb-4"><u>Parameters Calibration</u></h2> 
+ <p class = "lead">
+When using KNN, you have to take many parameters into consideration.<br>:
+<ol class = "lead">
+<li><b>The number of neighbors to look for.</b> Taking a low k will increase the influence of noise and the results are going to be less generalizable. On the other hand, taking a high k will tend to blur local effects which are exactly what we are looking for. It is also recommended to take an odd k for binary classes to avoid ties.</li>
+<li><b>The aggregation method to use.</b> Here we allow for arithmetic mean, median and mode for numeric variables and mode for categorical ones.</li>
+<li><b>Normalizing the data</b> is a method that allows to give every attribute the same influence in identifying neighbors when computing certain type of distances like the Euclidean one. You should normalize your data when the scales have no meaning and/or you have inconsistent scales like centimeters and meters. It implies prior knowledge on the data to know which one are more important. The algorithm automatically normalize the data when both numeric and categorical variable are provided.</li>
+<li><b>Numeric attribute distances:</b><br> among the various distance metrics available, we will focus on the main ones, Euclidean and Manhattan. Euclidean is a good distance measure to use if the input variables are similar in type (e.g. all measured widths and heights). Manhattan distance is a good measure to use if the input variables are not similar in type (such as age, height, etc…).</li>
+<li><b>Categorical attribute distances:</b> without prior transformation, applicable distances are related to frequency and similarity. Here we allow the use of two distances: Hamming distance and the Weighted Hamming distance.<br>
+<ul>
+<li><b>Hamming distance:</b> take all the categorical attributes and for each, count one if the value is not the same between two points. The Hamming distance is then the number of attributes for which the value was different.<br></li>
+
+<li><b>Weighted Hamming distance:</b> also return one if the value is different, but returns the frequency of the value in the attribute if they are matching, increasing the distance when the value is more frequent. When more than one attribute is categorical, the harmonic mean is applied. The result remain between zero and one but the mean value is shifted toward the lower values compared to the arithmetic mean.<br></li>
+<li><b>Binary attribute distances:</b>those attributes are generally obtained via categorical variables transformed into dummies. As already mentioned for the continuous variables, the Euclidean distance can also be applied here. However there is also another metric based on dissimilarity that can be used, the Jaccard distance.</li><br></ul></li>
+ </ol></p> 
+<p class = "lead">In order to identify the best distance metric to use for your data, you can use the tips given above but above all, you will have to experiment to find what best improves your model.</p>
+<!-------------------------------------Advantages---------------------------------------------------->
+<h2 class = "text-center mt-4 mb-4"><u>Advantages</u></h2> 
+<p class = "lead">
+Advantages of KNN Imputer are as follows:
+<ol class = "lead">
+<li><b>No Training Period:</b> KNN is called Lazy Learner (Instance based learning). It does not learn anything in the training period. It does not derive any discriminative function from the training data. In other words, there is no training period for it. It stores the training dataset and learns from it only at the time of making real time predictions. This makes the KNN algorithm much faster than other algorithms that require training e.g. SVM, Linear Regression etc.</li><br>
+
+<li>Since the KNN algorithm requires no training before making predictions, new data can be added seamlessly which will not impact the accuracy of the algorithm.</li><br>
+
+<li><b>KNN is very easy to implement.</b>There are only two parameters required to implement KNN i.e. the value of K and the distance function (e.g. Euclidean or Manhattan etc.)</li><br>
+ </ol></p> 
+<!-------------------------------Disadvantages----------------------------------------------------->
+<h2 class = "text-center mt-4 mb-4"><u>Disadvantages</u></h2> 
+<p class = "lead">
+Disadvantages of KNN Imputer are as follows:
+<ol class = "lead">
+<li><b>Does not work well with large dataset:</b> In large datasets, the cost of calculating the distance between the new point and each existing points is huge which degrades the performance of the algorithm</li><br>
+<li><b>Does not work well with high dimensions</b> The KNN algorithm doesn't work well with high dimensional data because with large number of dimensions, it becomes difficult for the algorithm to calculate the distance in each dimension</li><br>
+
+<li><b> Sensitive to noisy data, missing values and outliers:</b> KNN is sensitive to noise in the dataset. We need to manually impute missing values and remove outliers</li><br>
+ </ol></p> 
+<!------------------------------------Conclusion------------------------------------------------------>
+<h2 class = "text-center mt-4 mb-4"><u>Conclusion</u></h2> 
+<p class = "lead">
+There are different ways to handle missing data. Some methods such as removing the entire observation if it has a missing value or replacing the missing values with mean, median or mode values. However, these methods can waste valuable data or reduce the variability of your dataset. In contrast, KNN Imputer maintains the value and variability of your datasets and yet it is more precise and efficient than using the average values. 
+</p>
+<!---------------------------------------Help--------------------------------------------------------->
+  <div class = "text-center">
+      <a class = "btn btn-primary btn-lg mt-4 mb-4" href = "mailto:shashwatsharma12304@gmail.com?subject=Doubt%20regarding%20KNN%20imputer&body=Name%20%3A%20%3Cyour%20name%3E%0D%0AGithub%20Link%3A%20%3Cyour%20repository%20link%3E%0D%0ADescription%3A%20%3CIssues%20to%20be%20removed%3E">Help</a>
+        </div>
+  <!--------------------------------------------Footer----------------------------------------------->
+  {%include 'footer.html'%}
   </body>
   </html>
