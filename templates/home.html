@@ -13,6 +13,7 @@
         {% include 'style.css'%}
       </style>
     </head>
+<!------------------------Body Part-1 -Introduction-------------------------------------------->
     <body>
       {%include 'nav.html'%}
       <h1 class  = "text-center mt-4 mb-4">IMPUTATION TECHNIQUES</h1>
@@ -22,6 +23,7 @@
       <h2 class = "text-center mt-4 mb-4"><u>An Introduction</u></h2>
       <p class = "lead">In statistics, imputation is the process of replacing missing data with substituted values. When substituting for a data point, it is known as "unit imputation"; when substituting for a component of a data point, it is known as "item imputation". Imputation is a technique used for replacing the missing data with some substitute value to retain most of the data/information of the dataset. These techniques are used because removing the data from the dataset every time is not feasible and can lead to a reduction in the size of the dataset to a large extend, which not only raises concerns for biasing the dataset but also leads to incorrect analysis.</p>
       <center><img class = "img-fluid mt-4 mb-4" src ="https://imputation-techniques.shashwat12304.repl.co/static/imputation_intro.PNG"></center>
+<!------------------------Importance of Data imputation-------------------------------------------->     
       <h2 class = "text-center mt-4 mb-4"><u>Importance of Data Imputation</u></h2>
       <p class = "lead">Now that we learned what Data imputation is, let us see why exactly it is important.
 
@@ -32,6 +34,28 @@ We employ imputation since missing data can lead to the following problems:
 <br><b>Impacts on the Final Model:</b><br>Missing data may lead to bias in the dataset, which could affect the final model's analysis.
 <br><b>Desire to restore the entire dataset:</b><br>This typically occurs when we don't want to lose any (or any more) of the data in our dataset because all of it is crucial. Additionally, while the dataset is not very large, eliminating a portion of it could have a substantial effect on the final model.
 </p>
+<!------------------------Classification of Missing values-------------------------------------------->
+<h2 class = "text-center mt-4 mb-4"><u>Classification of Missing Values</u></h2>
+ <p class = "lead">
+The following classification is based on the order of increasing confidence behind the logical reason of missing values or decreasing randomness in the dataset.<br>
+<ol class = "lead">
+<li><b>Missing completely at Random (MCAR):</b><ul>
+<li>When data points are missing completely at random which means we have no clue why it is missing.</li>
+<li>Relatively less common occurrence in the industry.</li>
+<li>On application of any imputation technique we are not sure how it would work out.</li></ul></li><br>
+<li><b>Missing at Random (MAR):</b><ul>
+<li>This is different from first one in the way that although the data point  is missing at random, we are able to find a logical approach to impute that particular value.</li> 
+<li>For example, using the similar set of available data points in the dataset.</li></ul></li><br>
+<li><b>Not Missing at Random (NMAR):</b><ul>
+<li>The difference is you are able to find a way more logical reason ( i.e. with more confidence) that why those data points are missing.</li> 
+<li>Also known as intentional missing.</li>
+<li>For example: When the missing set of values belong to a certain group in the dataset.</li></ul></li><br>
+<li><b>Structured Missing (SM):</b><ul>
+<li>100% surity on the logical reason behind the missing values.</li>
+<li>The missing is structured/has a certain fixed pattern throughout the dataset.</li></ul></li><br>
+</ol>
+ </p>   
+<!------------------------------Link to second and third pages----------------------------------------->
    <h2 class = "text-center mt-4 mb-4"><u>Different Imputation techniques</u></h2>  
     <div>
       {% for technique in techniques %}
